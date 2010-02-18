@@ -1,6 +1,6 @@
 <h1>Listing users</h1>
 
-<ul>
+<ul id="users">
     <%= render :partial => "user", :collection => @users %>
 </ul>
 
@@ -8,3 +8,7 @@
 <br />
 
 <%= link_to 'New user', new_user_path %>
+
+<script type="text/javascript" charset="utf-8">
+    page = <%= @page %>;
+</script>

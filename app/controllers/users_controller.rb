@@ -2,10 +2,12 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
   def index
-    @users = User.paginate(:page => (params[:page] || 1))
+    @page = (params[:page] || 1)
+    @users = User.paginate(:page => @page)
 
     respond_to do |format|
       format.html # index.html.erb
+      format.js   { render :partial => "user", :collection => @users }
       format.xml  { render :xml => @users }
     end
   end
